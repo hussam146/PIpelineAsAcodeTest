@@ -20,5 +20,16 @@ pipeline {
         }
       }
     }
+    stage('validate'){
+      steps{
+        input(message: 'Are you sure you want to deploy', ok: 'Yes, I\'m sure')
+      }
+    }
+    stage('Deploy'){
+      steps{
+        sh 'echo $(date)'
+        echo "Deployment completed"
+      }
+    }
   }
 }
